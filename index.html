@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tasty Ingredients Pairing</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="http://fonts.cdnfonts.com/css/modern-sans" rel="stylesheet" />
+    <script src="https://d3js.org/d3.v7.js"></script>
+  </head>
+  <body id="page-body">
+    <div id="tooltip"></div>
+    <div class="scroll-line"></div>
+
+    <label class="switch">
+      <input type="checkbox" id="toggle-mode" onclick="togglePageMode()" />
+      <span class="slider"></span>
+    </label>
+
+    <svg style="display: none" viewBox="0 0 100 100" width="100" height="100">
+      <!-- point shared by both marks -->
+      <symbol id="point-mark" viewBox="0 0 100 100">
+        <rect x="40" y="68" width="20" height="15" fill="currentColor"></rect>
+      </symbol>
+
+      <!-- question mark -->
+      <symbol id="question-mark" viewBox="0 0 100 100">
+        <path
+          d="M 40 63 h 20 v -5 h 10 l 8 -8 v -25 l -8 -8 h -40 l -8 8 v 16 h 16 v -6 h 21 v 11 h -19"
+          fill="currentColor"
+        ></path>
+
+        <use href="#point-mark"></use>
+      </symbol>
+
+      <!-- exclamation mark -->
+      <symbol id="exclamation-mark" viewBox="0 0 100 100">
+        <path
+          d="M 40 59 l 4 4 h 12 l 4 -4 v -42 h -20"
+          fill="currentColor"
+        ></path>
+        <use href="#point-mark"></use>
+      </symbol>
+
+      <symbol id="arrow" viewBox="0 0 100 100">
+        <path
+          d="M 20 40 l 30 35 l 30 -35"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="20"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </symbol>
+    </svg>
+
+    <!-- wrapping container in which to include the details and summary elements -->
+    <div class="app">
+      <!-- button to toggle every details element open/close -->
+      <button class="app__toggle">
+        <svg width="60" height="60" viewBox="0 0 100 100">
+          <!-- using the question mark to toggle open, the exclamation mark to toggle close -->
+          <use href="#question-mark"></use>
+        </svg>
+      </button>
+      <!-- details & summary added through the script -->
+    </div>
+
+    <div id="graphic">
+      <div id="sections">
+        <div class="mouse_scroll">
+          <div>
+            <p>SCROLL</p>
+            <span class="m_scroll_arrows unu"></span>
+            <span class="m_scroll_arrows doi"></span>
+            <span class="m_scroll_arrows trei"></span>
+          </div>
+        </div>
+        <section class="step">
+          <br /><br />
+          <div class="title">Introduction</div>
+          <p>
+            Cooking is an essential part of life but it could be a hassle to
+            organise grocery shopping lists and make a decision on recipes. This
+            project could help making that decision easier.<br /><br />Click on
+            the widget to view the details of each widget or click on the
+            question mark to view all the details.<br /><br /><i
+              >Keep scrolling</i
+            >
+            to view the narrative visualisation about ingredients paring.
+          </p>
+        </section>
+        <section class="step">
+          <!-- another section -->
+          <br /><br />
+          <div class="title">Clustered of Ingredients</div>
+          <p>
+            Each node allows you to hover to view the ingredient's name.<br /><br />The
+            ingredients are grouped by its community which can be thought of as
+            a hidden grouping of similar ingredients. Therefore, these are
+            unlabeled groupings of the ingredients.<br /><br />Moreover, it can
+            be seen that only the top twelve ingredients by its importance are
+            highlighted by colour and icons. These ingredients will be explored
+            in the next few visualisations.
+          </p>
+        </section>
+        <section class="step">
+          <br /><br />
+          <!-- another section -->
+          <div class="title">Connected Ingredients</div>
+          <p>
+            Ingredients are connected to the link that indicate pairs of
+            ingredients that can be used to cook recipes. The more links
+            connected to those ingredients the more important it is in
+            contributing to high recipes' score which also means it has more
+            centrality.<br /><br />In this visualisation, centrality is
+            normalised to maximum at one for most connected ingredients.<br /><br />Moreover,
+            each ingredient node can be hover to view its name and filter the
+            links to only ones that are connected to that node.
+          </p>
+        </section>
+        <section class="step">
+          <br /><br />
+          <!-- another section -->
+          <div class="title">Interesting facts for important ingredients</div>
+          <p>
+            In case you forgot about what those ingredients are, the snippet of
+            information from wikipedia for each important ingredients are
+            provided. <br /><br />
+            These top important ingredients will be selected to explore their
+            related recipes in the next two visualisations.
+          </p>
+        </section>
+        <section class="step">
+          <br /><br />
+          <!-- another section -->
+          <div class="title">Recipes related to each ingredients</div>
+          <p>
+            Faceted bar chart shows the number of positive ratings for top ten
+            related recipes for each ingredient.<br /><br />You can hover the
+            charts to view recipes' information.
+          </p>
+        </section>
+        <section class="step">
+          <br /><br />
+          <!-- another section -->
+          <div class="title">
+            Which recipes are composed of more than one important ingredients?
+          </div>
+          <p>
+            It can be seen that most of the important ingredients are common in
+            some of the recipes that are shown. These recommended recipes are
+            generally have a good score and ratings has they composed of more
+            than one important ingredients<br /><br />The next visualisation
+            will show another aspect by stacking the ingredients by recipes.
+          </p>
+        </section>
+        <section class="step">
+          <br /><br />
+          <!-- another section -->
+          <div class="title">
+            How many of the important ingredients in each recipe?
+          </div>
+          <p>
+            The visualisation provides information about common recipes for the
+            important ingredients. The value of each ingredient in each recipe
+            is simply one of it is in the recipe and zero if it is not in the
+            recipe.<br /><br />In this page, no user interaction is implemented.
+          </p>
+        </section>
+        <section class="step">
+          <br /><br />
+          <!-- another section -->
+          <div class="title">What to cook?</div>
+          <p>
+            Please hover at the ingredients' nodes to view recipe metrics that
+            relate to the ingredient in the spider chart.<br /><br />The metrics
+            in the spider chart were scaled to minimum of zero and maximum of
+            one hundred grouped by ingredients. For example, if the lowest
+            recipe's score in that ingredient group is 90 then it will be shown
+            as zero in the chart.<br /><br />Moreover, you can hover at chart
+            elements for each recipe to view recipe's name and unscaled
+            metrics.<br /><br />Note that some of the observations cook time is
+            zero because it is missing.
+          </p>
+        </section>
+      </div>
+
+      <div id="vis"></div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
+<!--
+References
+Álvaro. (n.d.). Progress Bar on Scroll made with CSS/HTML/JavaScript. Codepen. Retrieved October 27, 2022, from https://codepen.io/alvarotrigo/pen/LYzpemz
+Bostock, M. (2020, June 11). Labeled Force Layout. Bl.ocks.org. https://bl.ocks.org/mbostock/950642
+Bremer, N. (2022, August 20). Radar Chart Redesign. Bl.ocks.org. http://bl.ocks.org/nbremer/21746a9668ffdf6d8242
+Chow, C. (2020, March 10). How I Created an Interactive, Scrolling Visualisation with D3.js, and how you can too. Medium. https://towardsdatascience.com/how-i-created-an-interactive-scrolling-visualisation-with-d3-js-and-how-you-can-too-e116372e2c73
+Cook, P. (2021, May 15). Force layout. D3 in Depth. https://www.d3indepth.com/force-layout/
+Corti, G. (n.d.). UI Blocky Accordian. Codepen. Retrieved October 27, 2022, from https://codepen.io/borntofrappe/pen/NZPRRE
+Gómez, J. A. G. (2020, August 10). d3.stack with d3.group. Observable. https://observablehq.com/@john-guerra/d3-stack-with-d3-group
+Holtz, Y. (n.d.-a). Basic stacked barplot in d3.js. D3-Graph-Gallery.com. https://d3-graph-gallery.com/graph/barplot_stacked_basicWide.html
+Holtz, Y. (n.d.-b). Stacked barplot with tooltip in d3.js. D3-Graph-Gallery.com. Retrieved October 21, 2022, from https://d3-graph-gallery.com/graph/barplot_stacked_hover.html
+Reid, A. (2020, December 29). javascript - How to create a “facetplot” in d3.js? Stack Overflow. https://stackoverflow.com/questions/65499073/how-to-create-a-facetplot-in-d3-js
+Rosenberg, K. (2019, March 5). D3 “force” layout with nodes situated around a circle. Bl.ocks.org. http://bl.ocks.org/krosenberg/989204175f68f40dfe3b
+Vallandingham, J. (2015, April 6). So You Want to Build A Scroller. Vallandingham.me. https://vallandingham.me/scroller.html
+Voxybuns. (n.d.). Universe of UI elements made with HTML & CSS. Uiverse.io. Retrieved October 27, 2022, from https://uiverse.io/detail/Voxybuns/horrible-shrimp-47
+Yang, D. (2019, March 1). D3 Spider Chart Tutorial. Yangdanny97.Github.io. https://yangdanny97.github.io/blog/2019/03/01/D3-Spider-Chart
+-->
+
