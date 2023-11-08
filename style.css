@@ -1,0 +1,424 @@
+#page-body{
+  background-color:#f6f9f9;
+  font-family: 'Modern Sans', sans-serif;
+  color: #232323;
+}
+
+#page-body.dark-theme{
+  background-color:#232323;
+  color: #f6f9f9;
+}
+
+
+#sections {
+    position: relative;
+    display: inline-block;
+    width: 20%;
+    top: 0px;
+    z-index: 10;
+    font-size: 1vw;
+    text-align: left;
+    
+    }
+.title {
+  font-weight: bold;
+}
+.step {
+    margin-top: 65%;
+    margin-bottom: 80%;
+    margin-left: 10%;
+    border-radius: 10px;
+    padding: 5%;
+    background: linear-gradient(145deg, #e3e6e6, #ffffff);
+    box-shadow:  5px 5px 10px #e3e6e6,
+                -5px -5px 10px #ffffff;
+    }
+
+#tooltip {
+    position: fixed;
+    padding: 0px 15px 0px 15px;
+    color: #232323;
+    z-index: 999;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #e3e6e6, #ffffff);
+    box-shadow:  2px 2px 4px #e3e6e6,
+                -2px -2px 4px #ffffff;
+        }
+#tooltip.dark-theme {
+    position: fixed;
+    padding: 0px 15px 0px 15px;
+    color: white;
+    z-index: 999;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #494949, #3d3d3d);
+    box-shadow:  2px 2px 4px #303030,
+                -2px -2px 4px #585858;
+        }
+
+#vis {
+    display: inline-block;
+    position: fixed;
+    top: 60px;
+    z-index: 1;
+    margin-left: 0;
+    
+    }
+
+
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 80%;
+  padding-bottom: 60%; /* aspect ratio */
+  vertical-align: top;
+  overflow: hidden;
+}
+.svg-content-responsive {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.force-node{
+  -webkit-filter: drop-shadow( 2px 2px 1px rgba(0, 0, 0, .3));
+  filter: drop-shadow( 2px 2px 1px rgba(0, 0, 0, .3));
+}
+
+.spider-text-path{
+  z-index: 999;
+}
+
+/* From uiverse.io by @Voxybuns */
+/* The switch - the box around the slider */
+/* https://uiverse.io/detail/Voxybuns/horrible-shrimp-47*/
+.switch {
+    /* Variables */
+  --switch_width: 2em;
+  --switch_height: 1em;
+  --thumb_color: #e8e8e8;
+  --track_color: #e8e8e8;
+  --track_active_color: #888;
+  --outline_color: #000;
+  font-size: 17px;
+  position: fixed;
+  display: inline-block;
+  width: var(--switch_width);
+  height: var(--switch_height);
+  left: 90%;
+  top: 5%;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+ }
+ 
+ /* The slider */
+ .slider {
+  box-sizing: border-box;
+  border: 2px solid var(--outline_color);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--track_color);
+  transition: .15s;
+  border-radius: var(--switch_height);
+ }
+ 
+ .slider:before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  height: var(--switch_height);
+  width: var(--switch_height);
+  border: 2px solid var(--outline_color);
+  border-radius: 100%;
+  left: -2px;
+  bottom: -2px;
+  background-color: var(--thumb_color);
+  transform: translateY(-0.2em);
+  box-shadow: 0 0.2em 0 var(--outline_color);
+  transition: .15s;
+ }
+ 
+ input:checked + .slider {
+  background-color: var(--track_active_color);
+ }
+ 
+ input:focus-visible + .slider {
+  box-shadow: 0 0 0 2px var(--track_active_color);
+ }
+ 
+ /* Raise thumb when hovered */
+ input:hover + .slider:before {
+  transform: translateY(-0.3em);
+  box-shadow: 0 0.3em 0 var(--outline_color);
+ }
+ 
+ input:checked + .slider:before {
+  transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.2em);
+ }
+ 
+ /* Raise thumb when hovered & checked */
+ input:hover:checked + .slider:before {
+  transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
+  box-shadow: 0 0.3em 0 var(--outline_color);
+ }
+
+ .scroll-line{
+  background: linear-gradient(145deg, #74BDCB, #FFA384);
+  box-shadow:  5px 5px 10px #919191,
+               -5px -5px 10px #919191;
+  border-radius: 10px;
+
+  top: 3px;
+  left: -5px;
+  height: 10px;
+  position: fixed;
+  z-index: 999;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  
+
+
+  .app {
+    margin: 3rem 1rem;
+    /*position relative to position the button in the top left corner */
+    position: fixed;
+    top: 15%;
+    left: 30%;
+    z-index: 100;
+    max-width: 60%;
+    border-radius: 10px;
+    width: 90vw;
+    background: linear-gradient(145deg, #fbfbfb, #d4d4d4);
+    box-shadow:  20px 20px 60px #c8c8c8,
+                -20px -20px 60px #ffffff;
+    border: 5px solid currentColor;
+  }
+  
+  
+  /* absolute position the toggle button in the top left corner of the container */
+  .app__toggle {
+    position: absolute;
+    bottom: 102%;
+    right: 101%;
+    padding: 0.25rem;
+    transform: translate(50%, 50%);
+    width: 40px;
+    height: 40px;
+    background: #000000;
+    z-index: 105;
+    border: none;
+    clip-path: polygon(
+      0 20%,
+      20% 0%,
+      80% 0%,
+      100% 20%,
+      100% 80%,
+      80% 100%,
+      20% 100%,
+      0% 80%
+    );
+  }
+  .app__toggle svg {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    display: block;
+    
+  }
+  
+  .app__faq {
+    line-height: 1.75;
+  }
+  .app__faq details {
+    /* padding to separate the details from each other and the first details from the absolutely positioned button
+    ! margin is not used to guarantee that the dotted border considers the entire width of the container
+    */
+    padding: 1rem;
+    padding-top: 0.5rem;
+    /* ! lower padding-bottom to offset the margin included in the summary element */
+    padding-bottom: 0.2rem;
+    font-size: 0.95rem;
+    /* transition for the change in background color */
+    transition: background-color 0.3s ease-out;
+  }
+  /* include an all details but the last a dotted border-top */
+  .app__faq details + details {
+    border-top: 3px dotted currentColor;
+    z-index: 105;
+  }
+  .app__faq summary {
+    font-size: 1rem;
+    /* margin to distance the detailed text from the summary */
+    margin-bottom: 0.25rem;
+    /* remove the default triangle */
+    list-style: none;
+    /* align the icon with the text of the summary and push the icon to the far right of the container */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* when the details element is opened update the background's color */
+  .app__faq details[open] {
+    background-color: transparent;
+    font-size: 0.6vw;
+    z-index: 2;
+  }
+  /* when the details element is opened rotate the svg icon */
+  .app__faq details summary svg {
+    transition: transform 0.25s cubic-bezier(0.17, 0.74, 0.74, 1.2);
+  }
+  .app__faq details[open] summary svg {
+    transform: rotate(180deg);
+  }
+  /* remove the default triangle on chrome */
+  .app__faq summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .app__faq details a {
+    color: inherit;
+  }
+  .app__faq code {
+    font-family: 'Modern Sans', sans-serif;
+    background: #000000;
+    color: #D1D0D0;
+    border-radius: 4px;
+    padding: 0.1rem 0.3rem;
+    z-index: 105;
+    
+  }
+
+/*Scrolling arrow apated from*/
+/*https://codepen.io/rightblog/pen/EagNMN/*/
+*, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  }
+
+.mouse_scroll {
+  position: fixed;
+	display: block;
+	width: 24px;
+	height: 100px;
+  top: 90%;
+  left: 8%;
+  z-index: 50;
+  color: #7a7a7a;
+  
+}
+.m_scroll_arrows
+{
+  display: block;
+  width: 5px;
+  height: 5px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  border-right: 4px solid #7a7a7a;
+  border-bottom: 4px solid #7a7a7a;
+  margin: 0 0 3px 4px;
+  
+  width: 16px;
+  height: 16px;
+}
+
+
+.unu
+{
+  margin-top: -60%;
+  
+}
+
+.unu, .doi, .trei
+{   margin-left: 70%;
+    -webkit-animation: mouse-scroll 1s infinite;
+    -moz-animation: mouse-scroll 1s infinite;
+    animation: mouse-scroll 1s infinite;
+  
+}
+
+.unu
+{
+  -webkit-animation-delay: .1s;
+  -moz-animation-delay: .1s;
+  -webkit-animation-direction: alternate;
+  
+  animation-direction: alternate;
+  animation-delay: alternate;
+}
+
+.doi
+{
+  -webkit-animation-delay: .2s;
+  -moz-animation-delay: .2s;
+  -webkit-animation-direction: alternate;
+  
+  animation-delay: .2s;
+  animation-direction: alternate;
+  
+  margin-top: -6px;
+}
+
+.trei
+{
+  -webkit-animation-delay: .3s;
+  -moz-animation-delay: .3s;
+  -webkit-animation-direction: alternate;
+  
+  animation-delay: .3s;
+  animation-direction: alternate;
+  
+  
+  margin-top: -6px;
+}
+@-webkit-keyframes mouse-scroll {
+
+  0%   { opacity: 0;}
+  50%  { opacity: .5;}
+  100% { opacity: 1;}
+}
+@-moz-keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+@-o-keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+@keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+/*
+References
+Álvaro. (n.d.). Progress Bar on Scroll made with CSS/HTML/JavaScript. Codepen. Retrieved October 27, 2022, from https://codepen.io/alvarotrigo/pen/LYzpemz
+Bostock, M. (2020, June 11). Labeled Force Layout. Bl.ocks.org. https://bl.ocks.org/mbostock/950642
+Bremer, N. (2022, August 20). Radar Chart Redesign. Bl.ocks.org. http://bl.ocks.org/nbremer/21746a9668ffdf6d8242
+Chow, C. (2020, March 10). How I Created an Interactive, Scrolling Visualisation with D3.js, and how you can too. Medium. https://towardsdatascience.com/how-i-created-an-interactive-scrolling-visualisation-with-d3-js-and-how-you-can-too-e116372e2c73
+Cook, P. (2021, May 15). Force layout. D3 in Depth. https://www.d3indepth.com/force-layout/
+Corti, G. (n.d.). UI Blocky Accordian. Codepen. Retrieved October 27, 2022, from https://codepen.io/borntofrappe/pen/NZPRRE
+Gómez, J. A. G. (2020, August 10). d3.stack with d3.group. Observable. https://observablehq.com/@john-guerra/d3-stack-with-d3-group
+Holtz, Y. (n.d.-a). Basic stacked barplot in d3.js. D3-Graph-Gallery.com. https://d3-graph-gallery.com/graph/barplot_stacked_basicWide.html
+Holtz, Y. (n.d.-b). Stacked barplot with tooltip in d3.js. D3-Graph-Gallery.com. Retrieved October 21, 2022, from https://d3-graph-gallery.com/graph/barplot_stacked_hover.html
+Reid, A. (2020, December 29). javascript - How to create a “facetplot” in d3.js? Stack Overflow. https://stackoverflow.com/questions/65499073/how-to-create-a-facetplot-in-d3-js
+Rosenberg, K. (2019, March 5). D3 “force” layout with nodes situated around a circle. Bl.ocks.org. http://bl.ocks.org/krosenberg/989204175f68f40dfe3b
+Vallandingham, J. (2015, April 6). So You Want to Build A Scroller. Vallandingham.me. https://vallandingham.me/scroller.html
+Voxybuns. (n.d.). Universe of UI elements made with HTML & CSS. Uiverse.io. Retrieved October 27, 2022, from https://uiverse.io/detail/Voxybuns/horrible-shrimp-47
+Yang, D. (2019, March 1). D3 Spider Chart Tutorial. Yangdanny97.Github.io. https://yangdanny97.github.io/blog/2019/03/01/D3-Spider-Chart
+*/
+  
+  
